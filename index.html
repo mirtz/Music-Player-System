@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+<head>
+<style>
+		body {
+			background-image: url("music.jpeg");
+			background-size: cover;
+			background-position: center;
+		}
+	</style>
+    <title>Music Player System</title>
+</head>
+<body>
+    <h1 style="color:White;"> Music Player System </h1>
+    <audio id="audioPlayer" controls>
+        <source src="" type="audio/mp3">
+    </audio>
+    <br><br>
+    <button onclick="play()">Play</button>
+    <button onclick="pause()">Pause</button>
+    <button onclick="stop()">Stop</button>
+  
+    <br><br>
+    <select id="playlist" onchange="selectSong()">
+        <option value="" disabled selected>Select Song</option>
+        <option value="music1.mp3">Song 1</option>
+        <option value="music2.mp3">Song 2</option>
+        <option value="music3.mp3">Song 3</option>
+        <option value="music4.mp3">Song 4</option>
+        <option value="music5.mp3">Song 5</option>
+        <option value="music6.mp3">Song 6</option>
+    </select>
+    <br><br>
+    <script type="text/javascript">
+        
+       
+        function play() {
+            var audio = document.getElementById("audioPlayer");
+            audio.play();
+        }
+
+        function pause() {
+            var audio = document.getElementById("audioPlayer");
+            audio.pause();
+        }
+
+        function stop() {
+            var audio = document.getElementById("audioPlayer");
+            audio.pause();
+            audio.currentTime = 0;
+        }
+
+        
+        function selectSong() {
+            var audio = document.getElementById("audioPlayer");
+            var playlist = document.getElementById("playlist");
+            audio.src = playlist.value;
+            audio.load();
+        }
+</script>
+<form method="post" action="urls">
+    <h5 style="color:White;">Enter song you want to listen on Youtube: <input type="text" name="songName">
+        <input type="submit" value="Search on Youtube">
+        </h5>
+</form>
+</body>
+</html>
+   
